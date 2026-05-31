@@ -1,0 +1,68 @@
+# Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+
+venv/
+.env/
+
+# MacOS
+
+.DS_Store
+
+# Streamlit
+
+.streamlit/secrets.toml
+
+# Ollama / Models
+
+models/
+*.gguf
+
+# Logs
+
+logs/
+*.log
+
+# Temporary files
+
+temp/
+tmp/
+
+# Images / extracted figures
+
+data/figures/
+data/cache/
+
+# Evaluation outputs
+
+evaluation_results/
+*.csv
+*.json
+
+# IDE
+
+.vscode/
+.idea/
+
+
+
+# PDF downloads
+
+papers/
+downloads/
+
+# Large generated outputs
+
+outputs/
+generated_gifs/
+
+evaluation/
+.env
+.env
+.env.*
+!.env.example
