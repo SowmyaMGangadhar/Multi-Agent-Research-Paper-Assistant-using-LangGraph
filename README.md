@@ -2,27 +2,43 @@
 
 A multi-agent AI system that helps users understand research papers from arXiv, paper URLs, or paper titles. The system can summarize papers, explain math equations, provide intuitive explanations, compare multiple papers, and explain figures/architecture diagrams using local LLMs.
 
+The project supports:
+
+- paper summarization
+- math explanation
+- intuition-based explanations
+- figure understanding
+- multi-paper comparison
+- conversational follow-up Q&A
+
+The system works with:
+
+- arXiv IDs
+- paper titles
+- paper URLs
+
+and runs fully on local LLMs using Ollama.
+
 ## Features
 
-- Search and load research papers using arXiv ID, paper title, or URL
-- Extract paper sections, tables, equations, and figures from PDFs
 - Multi-agent workflow using LangGraph
-- Router agent to select the right task-specific agent
-- Summarizer agent for structured paper summaries
-- Math agent for equation-level explanations
-- Intuition agent for simple conceptual explanations
-- Comparison agent for comparing multiple papers/models
-- Image agent for explaining paper figures and architecture diagrams
-- Stateful chat interface for follow-up questions
-- Streamlit UI and FastAPI backend
-- Local model support using Ollama
+- Research paper parsing using PyMuPDF
+- Equation extraction and math reasoning
+- Table and figure extraction from PDFs
+- Figure explanation using vision-language models
+- Stateful conversational memory
+- Support for follow-up questions
+- Paper comparison across multiple papers
+- Streamlit chat interface
+- Local inference using Ollama models
 
 ## Architecture
 
 ![LangGraph Workflow](screenshots/langgraph_workflow.png)
 ![alt text](image-1.png)
 
-The system uses LangGraph to orchestrate multiple agents:
+The workflow is orchestrated using LangGraph
+Agents used in the system:
 
 - Router Agent
 - Summarizer Agent
@@ -51,7 +67,13 @@ The system uses LangGraph to orchestrate multiple agents:
 
 ## Evaluation
 
-The system was evaluated on research-paper tasks including summarization, math explanation, intuition explanation, comparison, and unsupported-query handling.
+The system was evaluated on:
+
+- summarization
+- equation explanation
+- comparison tasks
+- routing accuracy
+- unsupported-query handling
 
 | Metric | Score |
 |---|---:|
@@ -90,4 +112,42 @@ research-paper-agent/
 ├── streamlit_app.py
 ├── requirements.txt
 ├── README.md
-└── screenshots/
+└── app.py
+
+## Setup
+
+1. Clone Repository
+git clone https://github.com/YOUR_USERNAME/Multi-Agent-Research-Paper-Assistant-using-LangGraph.git
+cd Multi-Agent-Research-Paper-Assistant-using-LangGraph
+
+2. Create Virtual Environment
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install Requirements
+pip install -r requirements.txt
+
+4. Install Ollama Models
+
+Install Ollama first:
+
+https://ollama.com/download
+
+Pull required models:
+
+ollama pull qwen2.5:7b
+ollama pull qwen2.5vl:7b
+
+Start Ollama:
+
+ollama serve
+
+5. Run Streamlit App
+streamlit run streamlit_app.py
+
+6. Example Queries
+1706.03762 summarize this paper
+
+1506.02640 Explain YOLO loss equation
+
+1810.04805 Explain why BERT is bidirectional
