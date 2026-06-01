@@ -142,8 +142,9 @@ Start Ollama:
 
 ollama serve
 
-5. Run Streamlit App
-streamlit run streamlit_app.py
+5. Run App
+uvicorn src.app:app --reload
+streamlit run src.streamlit_app.py
 
 6. Example Queries
 1706.03762 summarize this paper
